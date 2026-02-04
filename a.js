@@ -9,7 +9,6 @@ console.log(uint8, xor, id)
 
 
 
-
 /*o=(l=(p=localStorage.playerId).length)-337%l
 o=p.charCodeAt(o-1)^82;t=new TextEncoder()
 u=new Uint8Array([4,...t.encode(p)])
