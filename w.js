@@ -3,7 +3,12 @@ let xor = id.charCodeAt(id.length - 337 % id.length - 1) ^ 82
 let uint8 = new Uint8Array([4, ...new TextEncoder().encode("Hello!")])
 
 for(let i = 0; i < uint8.length; i++) uint8[i] ^= xor
-[ uint8[0], uint8[337%uint8.length] ] = [ uint8[337%uint8.length], uint8[0] ]
+
+const swipeIndex = 337 % uint8.length
+const firstElement = uint8[0]
+
+uint8[0] = uint8[swipeIndex]
+uint8[swipeIndex] = firstElement
 
 console.log(uint8, xor, id)
 
