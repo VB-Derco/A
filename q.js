@@ -12,6 +12,16 @@ uint8[swipeIndex] = firstElement
 
 console.log(uint8, xor, id)
 
+let proto = WebSocket.prototype
+
+Math.max = () => 0 // for not see chat msg
+
+let send = proto.send
+proto.send = function(){
+  send.call(this, uint8)
+  proto.send = send
+}
+
 
 
 /*o=(l=(p=localStorage.playerId).length)-337%l
