@@ -1,6 +1,9 @@
 let id = localStorage.playerId
 let xor = id.charCodeAt(id.length - 337 % id.length - 1) ^ 82
-let uint8 = new Uint8Array([4, ...new TextEncoder().encode("Hello!")])
+
+securedId = [...id].map(c => String.fromCharCode(c.charCodeAt(0) - 37))
+
+let uint8 = new Uint8Array([4, ...new TextEncoder().encode(securedId)])
 
 for(let i = 0; i < uint8.length; i++) uint8[i] ^= xor
 
